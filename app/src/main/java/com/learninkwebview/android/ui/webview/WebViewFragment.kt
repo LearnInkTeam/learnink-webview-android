@@ -1,4 +1,4 @@
-package com.learninkwebview.android.ui.dashboard
+package com.learninkwebview.android.ui.webview
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,14 +11,14 @@ import androidx.fragment.app.Fragment
 import com.learninkwebview.android.R
 import android.net.Uri
 
-class DashboardFragment : Fragment() {
+class WebViewFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_webview, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,18 +28,22 @@ class DashboardFragment : Fragment() {
                 view: WebView,
                 url: String
             ): Boolean {
+                // Open Learn.ink urls inside the WebView
                 if (url.contains("m.learn.ink")) {
                     view.loadUrl(url)
                 }
+                // Open all other urls in the browser
                 else {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                     view.context.startActivity(intent)
                 }
-                return true
+                return false
             }
         }
 
-        myWebView.loadUrl("https://m.learn.ink/learnink-templates/learning")
+        // Load the correct url
+        myWebView.loadUrl("https://m.learn.ink/acme/learning")
+        // Enable Javascript, content access and DOM storage
         myWebView.settings.javaScriptEnabled = true
         myWebView.settings.allowContentAccess = true
         myWebView.settings.domStorageEnabled = true
