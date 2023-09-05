@@ -39,7 +39,7 @@ class DashboardFragment : Fragment() {
             }
         }
 
-        myWebView.loadUrl("https://m.learn.ink/learnink-templates")
+        myWebView.loadUrl("https://m.learn.ink/learnink-templates/learning")
         myWebView.settings.javaScriptEnabled = true
         myWebView.settings.allowContentAccess = true
         myWebView.settings.domStorageEnabled = true
