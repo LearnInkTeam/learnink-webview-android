@@ -55,7 +55,7 @@ class WebViewFragment : Fragment() {
         myWebView.settings.javaScriptEnabled = true
         myWebView.settings.allowContentAccess = true
         myWebView.settings.domStorageEnabled = true
-        // Load the correct url
+        // Load the correct url, replace acme with the id for your organisation
         myWebView.loadUrl("https://m.learn.ink/acme/learning")
     }
 }
